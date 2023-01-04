@@ -6,7 +6,7 @@
 /*   By: jijoo <jijoo@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/30 15:34:50 by jijoo             #+#    #+#             */
-/*   Updated: 2023/01/04 14:49:27 by jijoo            ###   ########.fr       */
+/*   Updated: 2023/01/04 17:51:35 by jijoo            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,8 @@
 # include <unistd.h>
 # include <sys/time.h>
 # include <pthread.h>
+# define CHECK 1
+# define UPDATE 2
 
 typedef struct s_argset
 {
@@ -67,6 +69,7 @@ int         init_arg(t_argset *arg, int argc, char *argv[]);
 int         init_philo(t_philo **philo, t_argset *arg);
 
 // thread.c
+int         check_update(t_argset *arg, int mode);
 void        philo_fin(t_argset *arg, t_philo *philo);
 void        *invoking(void *param);
 int         threading(t_philo *philo, t_argset *arg);

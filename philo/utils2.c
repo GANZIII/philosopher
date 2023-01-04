@@ -6,7 +6,7 @@
 /*   By: jijoo <jijoo@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/30 22:39:01 by jijoo             #+#    #+#             */
-/*   Updated: 2023/01/04 14:50:09 by jijoo            ###   ########.fr       */
+/*   Updated: 2023/01/04 17:51:36 by jijoo            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ void    display(t_argset *arg, char *str, int id)
 
     now = get_time();
     pthread_mutex_lock(&(arg->display_mutex));
-    if (!(arg->is_fin))
+    if (!check_update(arg, CHECK))
         printf("%ld %d %s\n", now - arg->initial_time, id + 1, str);
     pthread_mutex_unlock(&(arg->display_mutex));
 }

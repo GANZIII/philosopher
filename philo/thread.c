@@ -6,13 +6,11 @@
 /*   By: jijoo <jijoo@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/30 17:54:48 by jijoo             #+#    #+#             */
-/*   Updated: 2023/01/04 17:20:19 by jijoo            ###   ########.fr       */
+/*   Updated: 2023/01/04 17:51:42 by jijoo            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "./include/philosopher.h"
-# define CHECK 1
-# define UPDATE 2
 
 int check_update(t_argset *arg, int mode)
 {
