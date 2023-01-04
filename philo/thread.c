@@ -6,7 +6,7 @@
 /*   By: jijoo <jijoo@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/30 17:54:48 by jijoo             #+#    #+#             */
-/*   Updated: 2023/01/04 14:52:31 by jijoo            ###   ########.fr       */
+/*   Updated: 2023/01/04 17:20:19 by jijoo            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,7 +56,7 @@ void    philo_fin(t_argset *arg, t_philo *philo)
                     pthread_mutex_unlock(&philo[idx].last_meal_mutex);
                     display(arg, "is died", idx);
                     check_update(arg, UPDATE);
-                    break;
+                    return ;
                 }
                 pthread_mutex_unlock(&philo[idx].last_meal_mutex);
                 idx++;
