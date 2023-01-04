@@ -6,7 +6,7 @@
 /*   By: jijoo <jijoo@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/30 17:52:20 by jijoo             #+#    #+#             */
-/*   Updated: 2022/12/31 16:49:52 by jijoo            ###   ########.fr       */
+/*   Updated: 2023/01/04 14:49:47 by jijoo            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,15 +46,11 @@ int init_mutex(t_argset *arg)
     }
     while (idx < arg->num_philo)
     {
-        if (pthread_mutex_init(&(arg->fork[idx]), 0))
-        {
-            pthread_mutex_destroy(&(arg->display_mutex));
-            dobby_fork(arg, idx);
-            free(arg->fork);
-            return (1);
-        }
+        pthread_mutex_init(&(arg->fork[idx]), 0);
         idx++;
     }
+    pthread_mutex_init(&arg->flag_mutex, 0);
+    pthread_mutex_init(&arg->fin_eat_mutex, 0);
     return (0);
 }
 
@@ -98,6 +94,8 @@ int init_philo(t_philo **philo, t_argset *arg)
         (*philo)[idx].fork_right = (idx + 1) % arg->num_philo;
         (*philo)[idx].last_meal = get_time();
         (*philo)[idx].cnt_eat = 0;
+        pthread_mutex_init(&(*philo)[idx].last_meal_mutex, 0);
+        pthread_mutex_init(&(*philo)[idx].cnt_eat_mutex, 0);
         idx++;
     }
     return (0);

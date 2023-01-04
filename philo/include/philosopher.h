@@ -6,7 +6,7 @@
 /*   By: jijoo <jijoo@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/30 15:34:50 by jijoo             #+#    #+#             */
-/*   Updated: 2022/12/31 16:54:43 by jijoo            ###   ########.fr       */
+/*   Updated: 2023/01/04 14:49:27 by jijoo            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,15 +29,19 @@ typedef struct s_argset
     pthread_mutex_t display_mutex;
     pthread_mutex_t *fork;
     int             fin_eat;
+    pthread_mutex_t fin_eat_mutex;
     long int        initial_time;
     int             is_fin;
+    pthread_mutex_t flag_mutex;
 }   t_argset;
 
 typedef struct s_philo
 {
     int             id;
     long int        last_meal;
+    pthread_mutex_t last_meal_mutex;
     int             cnt_eat;
+    pthread_mutex_t cnt_eat_mutex;
     t_argset        *arg;
     pthread_t       thread;
     int             fork_right;

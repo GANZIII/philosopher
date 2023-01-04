@@ -6,7 +6,7 @@
 /*   By: jijoo <jijoo@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/30 22:39:01 by jijoo             #+#    #+#             */
-/*   Updated: 2022/12/31 16:39:19 by jijoo            ###   ########.fr       */
+/*   Updated: 2023/01/04 14:50:09 by jijoo            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,6 +39,7 @@ void    dobby_fork(t_argset *arg, int idx)
     i = 0;
     while (i < idx)
     {
+        pthread_mutex_unlock(&(arg->fork[i]));
         pthread_mutex_destroy(&(arg->fork[i]));
         i++;
     }
@@ -52,6 +53,8 @@ void    dobby_philo(t_philo *philo, int idx)
     i = 0;
     while (i < idx)
     {
+        pthread_mutex_destroy(&philo->last_meal_mutex);
+        pthread_mutex_destroy(&philo->cnt_eat_mutex);
         pthread_join(philo[i].thread, 0);
         i++;
     }

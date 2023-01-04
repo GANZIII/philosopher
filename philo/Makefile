@@ -1,7 +1,7 @@
 NAME=philosopher
 CC=gcc
 HEADER=./include/
-CFLAGS=-Wall -Werror -Wextra -I $(HEADER) -pthread
+CFLAGS=-Wall -Werror -Wextra -I $(HEADER) -pthread -fsanitize=thread
 SRCS = activity.c \
 	init.c \
 	main.c \
