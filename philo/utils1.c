@@ -1,15 +1,3 @@
-/* ************************************************************************** */
-/*                                                                            */
-/*                                                        :::      ::::::::   */
-/*   utils1.c                                           :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: jijoo <jijoo@student.42seoul.kr>           +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/12/30 15:44:39 by jijoo             #+#    #+#             */
-/*   Updated: 2023/01/02 16:18:15 by jijoo            ###   ########.fr       */
-/*                                                                            */
-/* ************************************************************************** */
-
 #include "./include/philosopher.h"
 
 int	ft_isdigit(int c)
@@ -45,22 +33,22 @@ int	ft_atoi(const char *str)
 	return (sign * num);
 }
 
-long int    get_time(void)
+long int	get_time(void)
 {
-    long int    time;
-    struct timeval  now;
+	long int		time;
+	struct timeval	now;
 
-    gettimeofday(&now, 0);
-    time = (now.tv_sec * 1000) + (now.tv_usec / 1000);
-    return (time);
+	gettimeofday(&now, 0);
+	time = (now.tv_sec * 1000) + (now.tv_usec / 1000);
+	return (time);
 }
 
-void    ft_usleep(long int ms)
+void	ft_usleep(long int ms)
 {
-    long int    start;
+	long int	start;
 
-    start = 0;
-    start = get_time();
-    while((get_time() - start) < ms)
-        usleep(ms / 10);
+	start = 0;
+	start = get_time();
+	while ((get_time() - start) < ms)
+		usleep(ms / 10);
 }
