@@ -1,13 +1,14 @@
-NAME=philosopher
+NAME=philo
 CC=gcc
 HEADER=./include/
-CFLAGS=-Wall -Werror -Wextra -I $(HEADER) -pthread -fsanitize=thread
+CFLAGS=-Wall -Werror -Wextra -I $(HEADER) -pthread
 SRCS = activity.c \
 	init.c \
 	main.c \
 	thread.c \
 	utils1.c \
-	utils2.c
+	utils2.c \
+	utils3.c
 
 OBJS=$(SRCS:.c=.o)
 
